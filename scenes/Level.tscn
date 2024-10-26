@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcllbebd6dsff"]
+
+[ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_0fmsk"]
+
+[node name="Level" type="Node2D"]
+
+[node name="GUI" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Change Scene" parent="GUI" instance=ExtResource("1_0fmsk")]
+layout_mode = 0
+offset_left = 547.0
+offset_top = 390.0
+offset_right = 608.0
+offset_bottom = 421.0
+text = "finish game"
+ScenePath = "res://scenes/End.tscn"

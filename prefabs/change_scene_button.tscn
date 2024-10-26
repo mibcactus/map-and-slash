@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://f13llsufxudj"]
+
+[ext_resource type="Script" path="res://scripts/ChangeSceneButton.cs" id="1_hkn61"]
+
+[node name="Change Scene" type="Button"]
+offset_right = 61.0
+offset_bottom = 31.0
+text = "credits"
+script = ExtResource("1_hkn61")
+
+[connection signal="pressed" from="." to="." method="ButtonPressed"]

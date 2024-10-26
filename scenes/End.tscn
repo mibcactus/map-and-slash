@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3 uid="uid://c44jcawo7nbww"]
+
+[ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_m28hc"]
+
+[node name="End" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 170.0
+offset_right = 648.0
+offset_bottom = 193.0
+text = "GAME OVER"
+
+[node name="Menu" parent="." instance=ExtResource("1_m28hc")]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 287.0
+offset_right = 626.0
+offset_bottom = 318.0
+text = "Menu"
+ScenePath = "res://scenes/Start.tscn"
+
+[node name="View Scores" parent="." instance=ExtResource("1_m28hc")]
+layout_mode = 0
+offset_left = 565.0
+offset_top = 330.0
+offset_right = 662.0
+offset_bottom = 361.0
+text = "view scores"
+ScenePath = "res://scenes/Scores.tscn"

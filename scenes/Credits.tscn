@@ -1,0 +1,41 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5jyny6a5yps0"]
+
+[ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_p6fix"]
+
+[node name="Start Menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 470.0
+offset_top = 108.0
+offset_right = 582.0
+offset_bottom = 131.0
+text = "Credits!"
+
+[node name="Label" type="Label" parent="Label"]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 43.0
+offset_right = 187.0
+offset_bottom = 196.0
+text = "Programming:
+Milica Jack Mercury
+
+Art: Jack
+Open Maps: Mercury
+Our biggest hater: Harry"
+
+[node name="Menu Button" parent="." instance=ExtResource("1_p6fix")]
+layout_mode = 0
+offset_left = 556.0
+offset_top = 546.0
+offset_right = 617.0
+offset_bottom = 577.0
+text = "Menu"
+ScenePath = "res://scenes/Start.tscn"

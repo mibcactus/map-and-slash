@@ -1,0 +1,36 @@
+[gd_scene load_steps=2 format=3 uid="uid://c2l3vndbydnwg"]
+
+[ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_i1xyk"]
+
+[node name="Scores" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 0
+offset_left = 552.0
+offset_top = 315.0
+offset_right = 664.0
+offset_bottom = 338.0
+text = "High scores!"
+
+[node name="Credits" parent="." instance=ExtResource("1_i1xyk")]
+layout_mode = 0
+offset_left = 580.0
+offset_top = 495.0
+offset_right = 641.0
+offset_bottom = 526.0
+ScenePath = "res://scenes/Credits.tscn"
+
+[node name="Home" parent="." instance=ExtResource("1_i1xyk")]
+layout_mode = 0
+offset_left = 582.0
+offset_top = 537.0
+offset_right = 643.0
+offset_bottom = 568.0
+text = "Home"
+ScenePath = "res://scenes/Start.tscn"
