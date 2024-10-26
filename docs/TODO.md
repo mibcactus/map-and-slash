@@ -1,8 +1,8 @@
 Scenes
-- [ ] Main menu
-- [ ] Credits
+- [x] Main menu
+- [x] Credits
 - [ ] Scores
-- [ ] End screen
+- [x] End screen
 - [ ] The game
 
 Scores
@@ -13,7 +13,7 @@ Scores
 
 Slime
 - [ ] Walking SFX
-- [ ] Movement
+- [x] Movement
 - [ ] Hitbox
 - [ ] Hurtbox
 - [ ] Takes damage

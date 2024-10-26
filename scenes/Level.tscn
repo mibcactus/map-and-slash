@@ -1,9 +1,14 @@
-[gd_scene load_steps=3 format=3 uid="uid://dcllbebd6dsff"]
+[gd_scene load_steps=6 format=3 uid="uid://dcllbebd6dsff"]
 
 [ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_0fmsk"]
+[ext_resource type="PackedScene" uid="uid://bxehupkonstj7" path="res://scenes/Map.tscn" id="1_7x1dv"]
 [ext_resource type="PackedScene" uid="uid://devy2uqv0riik" path="res://prefabs/player.tscn" id="1_q6l55"]
+[ext_resource type="Script" path="res://scripts/Inventory.cs" id="3_agmdq"]
+[ext_resource type="PackedScene" uid="uid://bon0st5nhxnrg" path="res://prefabs/item.tscn" id="4_0e1n5"]
 
 [node name="Level" type="Node2D"]
+
+[node name="Map" parent="." instance=ExtResource("1_7x1dv")]
 
 [node name="Player" parent="." instance=ExtResource("1_q6l55")]
 position = Vector2(454, 298)
@@ -14,6 +19,15 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="Inventory" type="HBoxContainer" parent="GUI"]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("3_agmdq")
+
+[node name="Item" parent="GUI/Inventory" instance=ExtResource("4_0e1n5")]
+layout_mode = 2
 
 [node name="Change Scene" parent="GUI" instance=ExtResource("1_0fmsk")]
 layout_mode = 0
