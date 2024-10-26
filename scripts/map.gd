@@ -3,7 +3,9 @@ extends Node2D
 var lat = 52.939390
 var lon = -1.147170
 
-const mult = 0.005
+[Export]
+var mult = 0.005
+
 var b1 = lat - (lat*mult)
 var b2 = lon + (lon*mult)
 var b3 = lat + (lat*mult)
