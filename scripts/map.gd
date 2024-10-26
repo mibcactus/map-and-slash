@@ -28,6 +28,7 @@ func lonCalc(tempLon: float) -> float:
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 
+	print("map: onready entered")
 	
 	var headers = ["Content-Type: application/json"]
 	
