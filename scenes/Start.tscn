@@ -1,11 +1,35 @@
-[gd_scene load_steps=5 format=3 uid="uid://b1gld2axlvars"]
+[gd_scene load_steps=6 format=3 uid="uid://b1gld2axlvars"]
 
+[ext_resource type="Texture2D" uid="uid://0unxkg80mk8u" path="res://graphics/temp/temp bg.PNG" id="1_ja3rw"]
 [ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_mq325"]
 [ext_resource type="Texture2D" uid="uid://dr5bdfi7b3d50" path="res://graphics/UI/A Slime Visits Earth logo.png" id="1_xu0fb"]
 [ext_resource type="Theme" uid="uid://dng4tlnhjk4yi" path="res://theme.tres" id="3_8k36r"]
-[ext_resource type="Script" path="res://scripts/QuitButton.cs" id="4_etai2"]
+[ext_resource type="PackedScene" uid="uid://bi6bgkeuvjhqi" path="res://prefabs/quit_button.tscn" id="3_805qn"]
 
-[node name="Start Menu" type="MarginContainer"]
+[node name="Control" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme = ExtResource("3_8k36r")
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_ja3rw")
+expand_mode = 1
+stretch_mode = 1
+
+[node name="Start Menu" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -14,44 +38,40 @@ grow_vertical = 2
 theme_override_constants/margin_left = 60
 theme_override_constants/margin_top = 40
 theme_override_constants/margin_right = 120
-theme_override_constants/margin_bottom = 80
+theme_override_constants/margin_bottom = 60
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
+[node name="VBoxContainer" type="VBoxContainer" parent="Start Menu"]
 layout_mode = 2
 theme_override_constants/separation = 0
 
-[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
-texture_filter = 1
+[node name="TextureRect" type="TextureRect" parent="Start Menu/VBoxContainer"]
+texture_filter = 2
 texture_repeat = 1
 layout_mode = 2
+theme = ExtResource("3_8k36r")
 texture = ExtResource("1_xu0fb")
+stretch_mode = 4
 
-[node name="Menu Options" type="VBoxContainer" parent="VBoxContainer"]
+[node name="Menu Options" type="VBoxContainer" parent="Start Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 3
 theme_override_constants/separation = 6
 alignment = 2
 
-[node name="Start" parent="VBoxContainer/Menu Options" instance=ExtResource("1_mq325")]
+[node name="Start" parent="Start Menu/VBoxContainer/Menu Options" instance=ExtResource("1_mq325")]
 layout_mode = 2
 text = "Start"
 ScenePath = "res://scenes/Level.tscn"
 
-[node name="Scores" parent="VBoxContainer/Menu Options" instance=ExtResource("1_mq325")]
+[node name="Scores" parent="Start Menu/VBoxContainer/Menu Options" instance=ExtResource("1_mq325")]
 layout_mode = 2
 text = "Scores"
 ScenePath = "res://scenes/Scores.tscn"
 
-[node name="Credits" parent="VBoxContainer/Menu Options" instance=ExtResource("1_mq325")]
+[node name="Credits" parent="Start Menu/VBoxContainer/Menu Options" instance=ExtResource("1_mq325")]
 layout_mode = 2
 ScenePath = "res://scenes/Credits.tscn"
 
-[node name="Quit" type="Button" parent="VBoxContainer/Menu Options"]
+[node name="Quit" parent="Start Menu/VBoxContainer/Menu Options" instance=ExtResource("3_805qn")]
 layout_mode = 2
-theme = ExtResource("3_8k36r")
-text = "Quit
-"
-script = ExtResource("4_etai2")
-
-[connection signal="pressed" from="VBoxContainer/Menu Options/Quit" to="VBoxContainer/Menu Options/Quit" method="_on_quit_pressed"]
