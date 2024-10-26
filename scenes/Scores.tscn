@@ -3,7 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_i1xyk"]
 [ext_resource type="Theme" uid="uid://dng4tlnhjk4yi" path="res://theme.tres" id="1_pcx8v"]
 [ext_resource type="Texture2D" uid="uid://dyg1y17a4u2jr" path="res://graphics/UI/high scores.png" id="2_5nyhu"]
-[ext_resource type="Script" path="res://scenes/loadScores.cs" id="3_0xxnm"]
+[ext_resource type="Script" path="res://scripts/loadScores.cs" id="3_0xxnm"]
 
 [node name="Scores" type="Control"]
 layout_mode = 3
@@ -40,32 +40,9 @@ stretch_mode = 4
 
 [node name="Scores" type="VBoxContainer" parent="Start Menu/VBoxContainer"]
 layout_mode = 2
+theme = ExtResource("1_pcx8v")
 script = ExtResource("3_0xxnm")
-
-[node name="PLACEHOLDER 1" type="Label" parent="Start Menu/VBoxContainer/Scores"]
-layout_mode = 2
 theme = ExtResource("1_pcx8v")
-text = "1. TEST 999999"
-
-[node name="PLACEHOLDER 2" type="Label" parent="Start Menu/VBoxContainer/Scores"]
-layout_mode = 2
-theme = ExtResource("1_pcx8v")
-text = "2. TEST 999888"
-
-[node name="PLACEHOLDER 3" type="Label" parent="Start Menu/VBoxContainer/Scores"]
-layout_mode = 2
-theme = ExtResource("1_pcx8v")
-text = "2. TEST 999888"
-
-[node name="PLACEHOLDER 4" type="Label" parent="Start Menu/VBoxContainer/Scores"]
-layout_mode = 2
-theme = ExtResource("1_pcx8v")
-text = "2. TEST 999888"
-
-[node name="PLACEHOLDER 5" type="Label" parent="Start Menu/VBoxContainer/Scores"]
-layout_mode = 2
-theme = ExtResource("1_pcx8v")
-text = "2. TEST 999888"
 
 [node name="Menu Options" type="HBoxContainer" parent="Start Menu/VBoxContainer"]
 layout_mode = 2
