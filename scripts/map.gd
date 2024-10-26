@@ -43,7 +43,8 @@ func _ready() -> void:
 			""".format({"b1":b1,"b2":b2,"b3":b3,"b4":b4})
 	$HTTPRequest.request("https://overpass-api.de/api/interpreter", headers, HTTPClient.METHOD_POST, body)
 
-func _on_request_completed(_result, _response_code, _headers, body):
+func _on_request_completed(result, _response_code, _headers, body):
+	print(result)
 	print("Response received")
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	var buildings: Array = []
