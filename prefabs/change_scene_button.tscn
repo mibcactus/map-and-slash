@@ -10,4 +10,4 @@ theme = ExtResource("1_h8rje")
 text = "Credits"
 script = ExtResource("1_hkn61")
 
-[connection signal="pressed" from="." to="." method="ButtonPressed"]
+[connection signal="pressed" from="." to="." method="ChangeScenePressed"]
