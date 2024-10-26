@@ -3,8 +3,7 @@ extends Node2D
 var lat = 52.939390
 var lon = -1.147170
 
-[Export]
-var mult = 0.005
+@export var mult = 0.005
 
 var b1 = lat - (lat*mult)
 var b2 = lon + (lon*mult)
@@ -17,6 +16,8 @@ var maxLon = b4
 var latRange = maxLat-minLat
 var lonRange = maxLon-minLon
 
+var polygons: Array = []
+
 func latCalc(tempLat: float) -> float:
 	var x = tempLat - minLat
 	return (x/latRange) * 1000
@@ -28,13 +29,10 @@ func lonCalc(tempLon: float) -> float:
 	
 
 # Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-
-	print("map: onready entered")
-	
+func a_ready() -> void:
 	var headers = ["Content-Type: application/json"]
 	
-	$HTTPRequest.request_completed.connect(_on_request_completed)
+	var response = await $HTTPRequest.request_completed.connect(a_on_request_completed)
 	var body = """data=
 	[bbox:{b1},{b2},{b3},{b4}]
 			[out:json]
@@ -44,12 +42,15 @@ func _ready() -> void:
 			out geom;
 			""".format({"b1":b1,"b2":b2,"b3":b3,"b4":b4})
 	$HTTPRequest.request("https://overpass-api.de/api/interpreter", headers, HTTPClient.METHOD_POST, body)
+	
+	print("response is ", response)
+		
 
-func _on_request_completed(result, _response_code, _headers, body):
+func a_on_request_completed(result, _response_code, _headers, body):
 	print(result)
 	print("Response received")
 	var json = JSON.parse_string(body.get_string_from_utf8())
-	var buildings: Array = []
+	var _buildings: Array = []
 	for element in json["elements"]:
 		if element.has("tags"):
 			if element["tags"].has("building"):
@@ -59,22 +60,21 @@ func _on_request_completed(result, _response_code, _headers, body):
 				for point in element["geometry"]:
 					if point.has("lat") and point.has("lon"):
 						polygon.append(Vector2(latCalc(point["lat"]),lonCalc(point["lon"])))
-						print("Adding point "+str(latCalc(point["lat"]))+", "+str(lonCalc(point["lon"])))
+						#print("Adding point "+str(latCalc(point["lat"]))+", "+str(lonCalc(point["lon"])))
 					else:
-						print(point)
+						print("point has not been appended")
 				
-				var newBuilding = Building.new()
-				newBuilding.updateCollision(polygon)
+				polygons.append(polygon)
+				#var newBuilding = Building.new()
+				#newBuilding.updateCollision(polygon)
 				
-				buildings.append(newBuilding)
+				#buildings.append(newBuilding)
 				
-				newBuilding.queue_redraw()
-				
-				
-				
+				#newBuilding.queue_redraw()
 				
 				
-				
+		
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta: float) -> void:

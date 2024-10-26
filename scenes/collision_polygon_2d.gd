@@ -17,14 +17,6 @@ var v15 = Vector2(586.255999549664, 165.271930053957)
 var v16 = Vector2(586.264499836507, 167.669133607055)
 var v17 = Vector2(586.35101386699, 165.916995737344)
 var test = PackedVector2Array([v1,v2,v3,v4,v5,v6,v7,v8,v9,v10,v11,v12,v13,v14,v15,v16,v17])
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
 
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-
-func _physics_process(delta: float) -> void:
+func _physics_process(_delta: float) -> void:
 	polygon = test
