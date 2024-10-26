@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://j8itpj6x8d5b"]
+
+[ext_resource type="Texture2D" uid="uid://co7l0f8fnwgag" path="res://icon.svg" id="1_sikx4"]
+[ext_resource type="Script" path="res://prefabs/building_texture.gd" id="2_m073q"]
+
+[node name="BuildingTexture" type="Sprite2D"]
+texture = ExtResource("1_sikx4")
+script = ExtResource("2_m073q")
