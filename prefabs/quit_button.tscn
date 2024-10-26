@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://bi6bgkeuvjhqi"]
+
+[ext_resource type="Theme" uid="uid://dng4tlnhjk4yi" path="res://theme.tres" id="1_4a48c"]
+[ext_resource type="Script" path="res://scripts/QuitButton.cs" id="2_y6frg"]
+
+[node name="Quit" type="Button"]
+theme = ExtResource("1_4a48c")
+text = "Quit
+"
+script = ExtResource("2_y6frg")
+
+[connection signal="pressed" from="." to="." method="_on_quit_pressed"]
