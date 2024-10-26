@@ -4,7 +4,7 @@
 [ext_resource type="Script" path="res://scripts/Player.cs" id="2_jjmjv"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qqn7l"]
-radius = 7.0
+radius = 22.0227
 
 [node name="Player" type="CharacterBody2D"]
 slide_on_ceiling = false

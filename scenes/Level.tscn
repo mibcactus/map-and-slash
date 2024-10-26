@@ -8,7 +8,15 @@
 
 [node name="Level" type="Node2D"]
 
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Area2D"]
+position = Vector2(-548, 253)
+scale = Vector2(9.79914, 2.9465)
+polygon = PackedVector2Array(100.111, 87.9008, 117.255, 89.9371, 154.401, 55.9986, 158.687, -25.4539, 146.85, -21.0419, 148.278, 35.9749, 125.929, 58.0349, 102.56, 60.75)
+
 [node name="Map" parent="." instance=ExtResource("1_7x1dv")]
+scale = Vector2(10, 10)
 
 [node name="Player" parent="." instance=ExtResource("1_q6l55")]
 position = Vector2(454, 298)
