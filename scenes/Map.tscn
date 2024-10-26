@@ -1,16 +1,29 @@
-[gd_scene load_steps=2 format=3 uid="uid://bxehupkonstj7"]
+[gd_scene load_steps=5 format=3 uid="uid://bxehupkonstj7"]
+
+[ext_resource type="Script" path="res://scripts/http_request.gd" id="1_hh678"]
+[ext_resource type="Script" path="res://scripts/map.gd" id="1_qe2nd"]
+[ext_resource type="Script" path="res://scripts/building.gd" id="2_oxmmi"]
 
 [sub_resource type="Curve2D" id="Curve2D_otwo5"]
 
 [node name="Map" type="Node2D"]
+script = ExtResource("1_qe2nd")
 
 [node name="Points" type="Node" parent="."]
 
 [node name="Path" type="Path2D" parent="Points"]
 curve = SubResource("Curve2D_otwo5")
 
-[node name="Building" type="Polygon2D" parent="Points"]
+[node name="PathFollow2D" type="PathFollow2D" parent="Points/Path"]
+
+[node name="Building" type="Area2D" parent="Points"]
+script = ExtResource("2_oxmmi")
 
 [node name="Shop" type="Polygon2D" parent="Points/Building"]
 
 [node name="School" type="Polygon2D" parent="Points/Building"]
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="Points/Building"]
+
+[node name="HTTPRequest" type="HTTPRequest" parent="."]
+script = ExtResource("1_hh678")
