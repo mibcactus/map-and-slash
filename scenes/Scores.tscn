@@ -1,6 +1,7 @@
-[gd_scene load_steps=5 format=3 uid="uid://c2l3vndbydnwg"]
+[gd_scene load_steps=6 format=3 uid="uid://c2l3vndbydnwg"]
 
 [ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_i1xyk"]
+[ext_resource type="Texture2D" uid="uid://0unxkg80mk8u" path="res://graphics/temp/temp bg.PNG" id="1_jp3ru"]
 [ext_resource type="Theme" uid="uid://dng4tlnhjk4yi" path="res://theme.tres" id="1_pcx8v"]
 [ext_resource type="Texture2D" uid="uid://dyg1y17a4u2jr" path="res://graphics/UI/high scores.png" id="2_5nyhu"]
 [ext_resource type="Script" path="res://scripts/loadScores.cs" id="3_0xxnm"]
@@ -12,6 +13,17 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_jp3ru")
+expand_mode = 1
+stretch_mode = 1
 
 [node name="Start Menu" type="MarginContainer" parent="."]
 layout_mode = 1

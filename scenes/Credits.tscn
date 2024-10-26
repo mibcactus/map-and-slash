@@ -1,6 +1,10 @@
-[gd_scene load_steps=2 format=3 uid="uid://b5jyny6a5yps0"]
+[gd_scene load_steps=6 format=3 uid="uid://b5jyny6a5yps0"]
 
+[ext_resource type="Texture2D" uid="uid://0unxkg80mk8u" path="res://graphics/temp/temp bg.PNG" id="1_c2g1x"]
 [ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_p6fix"]
+[ext_resource type="Theme" uid="uid://dng4tlnhjk4yi" path="res://theme.tres" id="2_ilei6"]
+[ext_resource type="Texture2D" uid="uid://cc36p1hhwho5q" path="res://graphics/UI/Credits.png" id="3_1sgnc"]
+[ext_resource type="PackedScene" uid="uid://bi6bgkeuvjhqi" path="res://prefabs/quit_button.tscn" id="5_s8ch7"]
 
 [node name="Start Menu" type="Control"]
 layout_mode = 3
@@ -10,32 +14,66 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 470.0
-offset_top = 108.0
-offset_right = 582.0
-offset_bottom = 131.0
-text = "Credits!"
+[node name="Background" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_c2g1x")
+expand_mode = 1
+stretch_mode = 1
 
-[node name="Label" type="Label" parent="Label"]
-layout_mode = 0
-offset_left = -1.0
-offset_top = 43.0
-offset_right = 187.0
-offset_bottom = 196.0
+[node name="Credits Menu" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 60
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Credits Menu"]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Credits Menu/VBoxContainer"]
+texture_filter = 2
+texture_repeat = 1
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+theme = ExtResource("2_ilei6")
+texture = ExtResource("3_1sgnc")
+stretch_mode = 4
+
+[node name="Label" type="Label" parent="Credits Menu/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_ilei6")
 text = "Programming:
-Milica Jack Mercury
+Jack, Mercury, Milica
 
-Art: Jack
-Open Maps: Mercury
-Our biggest hater: Harry"
+Art:
+Jack
 
-[node name="Menu Button" parent="." instance=ExtResource("1_p6fix")]
-layout_mode = 0
-offset_left = 556.0
-offset_top = 546.0
-offset_right = 617.0
-offset_bottom = 577.0
+Thanks to OpenStreetMap!"
+
+[node name="Menu Options" type="HBoxContainer" parent="Credits Menu/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 10
+theme = ExtResource("2_ilei6")
+theme_override_constants/separation = 6
+alignment = 2
+
+[node name="Menu Button" parent="Credits Menu/VBoxContainer/Menu Options" instance=ExtResource("1_p6fix")]
+layout_mode = 2
 text = "Menu"
 ScenePath = "res://scenes/Start.tscn"
+
+[node name="Quit" parent="Credits Menu/VBoxContainer/Menu Options" instance=ExtResource("5_s8ch7")]
+layout_mode = 2
