@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://v88gp467xnff"]
+
+[sub_resource type="Curve2D" id="Curve2D_otwo5"]
+
+[node name="Map" type="Node2D"]
+
+[node name="Points" type="Node" parent="."]
+
+[node name="Path" type="Path2D" parent="Points"]
+curve = SubResource("Curve2D_otwo5")
+
+[node name="Building" type="Polygon2D" parent="Points"]
+
+[node name="Shop" type="Polygon2D" parent="Points/Building"]
+
+[node name="School" type="Polygon2D" parent="Points/Building"]
