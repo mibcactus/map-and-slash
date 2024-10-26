@@ -1,0 +1,1 @@
+class_name BuildingTexture extends Sprite2D

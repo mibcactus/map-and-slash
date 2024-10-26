@@ -8,6 +8,9 @@ var lon = -1.147170
 
 @export var map_scale = 3000
 
+@export var texture_filepath = "res://icon.svg"
+var texture = load(texture_filepath)
+
 var map_range = 1.0/map_scale
 
 var minLat = lat - map_range
@@ -21,16 +24,14 @@ var lonRange = maxLon-minLon
 
 var polygons: Array = []
 
-func latCalc(tempLat: float) -> float:
-	var x = tempLat - minLat
-	return (x/latRange) * 1000
-	
-func lonCalc(tempLon: float) -> float:
-	var x = tempLon - minLon
-	return (x/lonRange) * 1000
+# north-south
+func latCalc(responseLat: float) -> float:
+	var x = responseLat - minLat
+	return (x/latRange) * 1000 + maxLat
 
-# Called when the node enters the scene tree for the first time.
-		
+func lonCalc(responseLon: float) -> float:
+	var x = responseLon - minLon
+	return (x/lonRange) * 1000 + maxLon
 
 func _on_request_completed(result, _response_code, _headers, body):
 	print("result: ", result)
@@ -57,9 +58,14 @@ func _on_request_completed(result, _response_code, _headers, body):
 					else:
 						print("point has not been appended")
 				
-				var collisionObject = CollisionPolygon2D.new()
-				collisionObject.polygon = polygon;
+				var collisionObject = Polygon2D.new()
+				collisionObject.polygon = polygon
+				collisionObject.color = Color.BROWN
+				#collisionObject.texture = texture
+			
 				buildingsNode.add_child(collisionObject)
+	buildingsNode.add_child(BuildingTexture.new())
+				
 
 func _ready() -> void:
 	var headers = ["Content-Type: application/json"]
