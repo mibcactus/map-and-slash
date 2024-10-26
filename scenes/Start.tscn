@@ -1,45 +1,57 @@
-[gd_scene load_steps=2 format=3 uid="uid://b1gld2axlvars"]
+[gd_scene load_steps=5 format=3 uid="uid://b1gld2axlvars"]
 
 [ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_mq325"]
+[ext_resource type="Texture2D" uid="uid://dr5bdfi7b3d50" path="res://graphics/UI/A Slime Visits Earth logo.png" id="1_xu0fb"]
+[ext_resource type="Theme" uid="uid://dng4tlnhjk4yi" path="res://theme.tres" id="3_8k36r"]
+[ext_resource type="Script" path="res://scripts/QuitButton.cs" id="4_etai2"]
 
-[node name="Start Menu" type="Control"]
-layout_mode = 3
+[node name="Start Menu" type="MarginContainer"]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme_override_constants/margin_left = 60
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 80
 
-[node name="Label" type="Label" parent="."]
-layout_mode = 0
-offset_left = 552.0
-offset_top = 315.0
-offset_right = 664.0
-offset_bottom = 338.0
-text = "map and slash"
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
 
-[node name="Credits" parent="." instance=ExtResource("1_mq325")]
-layout_mode = 0
-offset_left = 590.0
-offset_top = 548.0
-offset_right = 651.0
-offset_bottom = 579.0
-ScenePath = "res://scenes/Credits.tscn"
+[node name="TextureRect" type="TextureRect" parent="VBoxContainer"]
+texture_filter = 1
+texture_repeat = 1
+layout_mode = 2
+texture = ExtResource("1_xu0fb")
 
-[node name="Scores" parent="." instance=ExtResource("1_mq325")]
-layout_mode = 0
-offset_left = 590.0
-offset_top = 500.0
-offset_right = 651.0
-offset_bottom = 531.0
+[node name="Menu Options" type="VBoxContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 3
+theme_override_constants/separation = 6
+alignment = 2
+
+[node name="Start" parent="VBoxContainer/Menu Options" instance=ExtResource("1_mq325")]
+layout_mode = 2
+text = "Start"
+ScenePath = "res://scenes/Level.tscn"
+
+[node name="Scores" parent="VBoxContainer/Menu Options" instance=ExtResource("1_mq325")]
+layout_mode = 2
 text = "Scores"
 ScenePath = "res://scenes/Scores.tscn"
 
-[node name="Start" parent="." instance=ExtResource("1_mq325")]
-layout_mode = 0
-offset_left = 591.0
-offset_top = 454.0
-offset_right = 652.0
-offset_bottom = 485.0
-text = "Start"
-ScenePath = "res://scenes/Level.tscn"
+[node name="Credits" parent="VBoxContainer/Menu Options" instance=ExtResource("1_mq325")]
+layout_mode = 2
+ScenePath = "res://scenes/Credits.tscn"
+
+[node name="Quit" type="Button" parent="VBoxContainer/Menu Options"]
+layout_mode = 2
+theme = ExtResource("3_8k36r")
+text = "Quit
+"
+script = ExtResource("4_etai2")
+
+[connection signal="pressed" from="VBoxContainer/Menu Options/Quit" to="VBoxContainer/Menu Options/Quit" method="_on_quit_pressed"]
