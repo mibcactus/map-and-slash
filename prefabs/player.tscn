@@ -19,3 +19,5 @@ texture = ExtResource("2_gvmye")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
 shape = SubResource("CircleShape2D_qqn7l")
+
+[node name="SFX" type="AudioStreamPlayer" parent="."]
