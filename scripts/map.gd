@@ -15,12 +15,12 @@ var maxLon = b4
 var latRange = maxLat-minLat
 var lonRange = maxLon-minLon
 
-func latCalc(lat: float) -> float:
-	var x = lat - minLat
+func latCalc(tempLat: float) -> float:
+	var x = tempLat - minLat
 	return (x/latRange) * 1000
 	
-func lonCalc(lon: float) -> float:
-	var x = lon - minLon
+func lonCalc(tempLon: float) -> float:
+	var x = tempLon - minLon
 	return (x/lonRange) * 1000
 		
 	
@@ -42,7 +42,7 @@ func _ready() -> void:
 			""".format({"b1":b1,"b2":b2,"b3":b3,"b4":b4})
 	$HTTPRequest.request("https://overpass-api.de/api/interpreter", headers, HTTPClient.METHOD_POST, body)
 
-func _on_request_completed(result, response_code, headers, body):
+func _on_request_completed(_result, _response_code, _headers, body):
 	print("Response received")
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	var buildings: Array = []
@@ -54,8 +54,6 @@ func _on_request_completed(result, response_code, headers, body):
 				
 				for point in element["geometry"]:
 					if point.has("lat") and point.has("lon"):
-						var lat = point["lat"]
-						var long = point["lon"]
 						polygon.append(Vector2(latCalc(point["lat"]),lonCalc(point["lon"])))
 						print("Adding point "+str(latCalc(point["lat"]))+", "+str(lonCalc(point["lon"])))
 					else:
@@ -75,5 +73,5 @@ func _on_request_completed(result, response_code, headers, body):
 				
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	pass
