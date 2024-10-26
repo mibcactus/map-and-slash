@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://devy2uqv0riik"]
 
+[ext_resource type="Texture2D" uid="uid://6nu2fc1xjlgi" path="res://graphics/sprites/Slime_big.png" id="2_gvmye"]
 [ext_resource type="Script" path="res://scripts/Player.cs" id="2_jjmjv"]
-[ext_resource type="Texture2D" uid="uid://co7l0f8fnwgag" path="res://icon.svg" id="2_r5lnr"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_qqn7l"]
 radius = 7.0
@@ -14,7 +14,7 @@ script = ExtResource("2_jjmjv")
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
 texture_repeat = 1
-texture = ExtResource("2_r5lnr")
+texture = ExtResource("2_gvmye")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)

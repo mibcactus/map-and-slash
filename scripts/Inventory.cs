@@ -1,5 +1,6 @@
 using Godot;
-using System;
+
+namespace hacknotts.scripts;
 
 public partial class Inventory : HBoxContainer
 {
