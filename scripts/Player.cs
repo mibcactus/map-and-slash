@@ -31,11 +31,12 @@ public partial class Player : CharacterBody2D {
 			GD.Print("special");
 			lastAction = DateTime.Now;
 		}
-
+		/* Change this to only run when footstep happens
 		if (hasTimePassed(lastFootstep, timeBetweenFootsteps)) {
 			var sfx = GetNode<AudioStreamPlayer>("SFX");
 			sfx.Play();
 			lastFootstep = DateTime.Now;
 		}
+		*/
 	}
 }
