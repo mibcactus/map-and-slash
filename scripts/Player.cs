@@ -25,18 +25,24 @@ public partial class Player : CharacterBody2D {
 	public override void _Process(double delta) {
 		Vector2 input = Input.GetVector("left", "right", "up", "down");
 		Velocity = input * speed;
-		MoveAndSlide();
+		//MoveAndSlide();
 
+		
+		
 		if (Input.IsActionPressed("special") && hasTimePassed(lastAction, timeBetweenActions)) {
 			GD.Print("special");
 			lastAction = DateTime.Now;
 		}
-		/* Change this to only run when footstep happens
+
 		if (hasTimePassed(lastFootstep, timeBetweenFootsteps)) {
 			var sfx = GetNode<AudioStreamPlayer>("SFX");
 			sfx.Play();
 			lastFootstep = DateTime.Now;
 		}
-		*/
+		
+		var collision = MoveAndCollide(Velocity * (float) delta);
+		if (collision != null) {
+			GD.Print("collision");
+		}
 	}
 }
