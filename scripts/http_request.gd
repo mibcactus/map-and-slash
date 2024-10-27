@@ -56,7 +56,7 @@ func _on_request_completed(_result, _response_code, _headers, body):
 				building.texture = texture
 				building.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 				
-				building.add_child(buildingCollision)
+				buildingsNode.add_child(buildingCollision)
 				buildingsNode.add_child(building)
 				
 				

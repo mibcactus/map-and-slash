@@ -12,7 +12,7 @@ func updateCollision(points: PackedVector2Array) -> void:
  */
 namespace hacknotts.scenes;
 
-public partial class Building : Area2D {
+public partial class Building : StaticBody2D {
 
 	public void _on_body_entered() {
 		GD.Print("OnBodyEntered");

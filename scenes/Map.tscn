@@ -12,9 +12,9 @@ script = ExtResource("1_hh678")
 map_scale = 7000
 texture_filepath = "res://graphics/textures/concete.png"
 
-[node name="Building" type="Area2D" parent="HTTPRequest"]
+[node name="Building" type="StaticBody2D" parent="HTTPRequest"]
 collision_layer = 8
-collision_mask = 9
+collision_mask = 0
 script = ExtResource("2_4yxss")
 
 [node name="Path" type="Path2D" parent="HTTPRequest"]

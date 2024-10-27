@@ -8,8 +8,8 @@
 radius = 22.0227
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 9
-collision_mask = 9
+collision_mask = 8
+motion_mode = 1
 slide_on_ceiling = false
 floor_stop_on_slope = false
 script = ExtResource("2_jjmjv")
