@@ -47,9 +47,6 @@ func _on_request_completed(_result, _response_code, _headers, body):
 				for point in element["geometry"]:
 					if point.has("lat") and point.has("lon"):
 						polygon.append(Vector2(latCalc(point["lat"]),lonCalc(point["lon"])))
-						print("Adding point "+str(latCalc(point["lat"]))+", "+str(lonCalc(point["lon"])))
-					else:
-						print("point has not been appended")
 				
 				var buildingCollision = CollisionPolygon2D.new();
 				buildingCollision.polygon = polygon
@@ -61,6 +58,8 @@ func _on_request_completed(_result, _response_code, _headers, body):
 				
 				building.add_child(buildingCollision)
 				buildingsNode.add_child(building)
+				
+				
 
 func _ready() -> void:
 	var headers = ["Content-Type: application/json"]
