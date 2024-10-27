@@ -1,6 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://bon0st5nhxnrg"]
+[gd_scene load_steps=3 format=3 uid="uid://bon0st5nhxnrg"]
 
 [ext_resource type="Texture2D" uid="uid://co7l0f8fnwgag" path="res://icon.svg" id="1_5xjh1"]
+[ext_resource type="Script" path="res://scripts/Item.cs" id="2_c6xj2"]
 
 [node name="Item" type="TextureRect"]
 texture = ExtResource("1_5xjh1")
+script = ExtResource("2_c6xj2")
