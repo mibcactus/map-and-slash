@@ -10,6 +10,7 @@
 [node name="HTTPRequest" type="HTTPRequest" parent="."]
 script = ExtResource("1_hh678")
 map_scale = 7000
+texture_filepath = "res://graphics/textures/concete.png"
 
 [node name="Building" type="Area2D" parent="HTTPRequest"]
 script = ExtResource("2_oxmmi")

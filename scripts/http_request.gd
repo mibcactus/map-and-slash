@@ -5,11 +5,10 @@ var lat = 52.939390
 var lon = -1.147170
 
 # zoom scale
-
 @export var map_scale = 3000
 
 @export var texture_filepath = "res://icon.svg"
-var texture = load(texture_filepath)
+var texture
 
 var map_range = 1.0/map_scale
 
@@ -29,19 +28,13 @@ func latCalc(responseLat: float) -> float:
 	var x = responseLat - minLat
 	return (x/latRange) * 1000 + maxLat
 
+# east-west
 func lonCalc(responseLon: float) -> float:
 	var x = responseLon - minLon
 	return (x/lonRange) * 1000 + maxLon
 
-func _on_request_completed(result, _response_code, _headers, body):
-	print("result: ", result)
-	print("response code: ", _response_code)
-	print("Response received")
-	
-	var bodystring = body.get_string_from_utf8()
-	print("body string: ")
-	print(bodystring)
-	var json = JSON.parse_string(bodystring)
+func _on_request_completed(_result, _response_code, _headers, body):
+	var json = JSON.parse_string(body.get_string_from_utf8())
 	var _buildings: Array = []
 	
 	var buildingsNode = find_child("Building")
@@ -58,19 +51,21 @@ func _on_request_completed(result, _response_code, _headers, body):
 					else:
 						print("point has not been appended")
 				
-				var collisionObject = Polygon2D.new()
-				collisionObject.polygon = polygon
-				collisionObject.color = Color.BROWN
-				#collisionObject.texture = texture
-			
-				buildingsNode.add_child(collisionObject)
-	buildingsNode.add_child(BuildingTexture.new())
+				var buildingCollision = CollisionPolygon2D.new();
+				buildingCollision.polygon = polygon
 				
+				var building = Polygon2D.new()
+				building.polygon = polygon
+				building.texture = texture
+				building.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
+				
+				building.add_child(buildingCollision)
+				buildingsNode.add_child(building)
 
 func _ready() -> void:
 	var headers = ["Content-Type: application/json"]
+	texture = load(texture_filepath)
 	
-	#$HTTPRequest.request_completed.connect(_on_request_completed)
 	var body = """data=
 	[bbox:{b1},{b2},{b3},{b4}]
 			[out:json]
