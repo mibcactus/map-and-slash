@@ -1,0 +1,14 @@
+[gd_scene load_steps=5 format=3 uid="uid://ddj02dqw70kpr"]
+
+[ext_resource type="Texture2D" uid="uid://bsg7r5aop5c0q" path="res://graphics/Sprites/door.png" id="1_3mima"]
+[ext_resource type="Script" path="res://scenes/door.gd" id="2_qvllk"]
+[ext_resource type="PackedScene" uid="uid://b4s608q1epail" path="res://scenes/enemy.tscn" id="3_1m768"]
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="4_sr4da"]
+
+[node name="Door" type="Sprite2D"]
+texture = ExtResource("1_3mima")
+script = ExtResource("2_qvllk")
+
+[node name="Enemy" parent="." instance=ExtResource("3_1m768")]
+position = Vector2(492.277, 491.022)
+script = ExtResource("4_sr4da")

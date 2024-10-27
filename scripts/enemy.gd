@@ -1,8 +1,14 @@
-extends CharacterBody2D
+class_name Enemy extends CharacterBody2D
 
+var SPEED = 1
 
-const SPEED = 300.0
-
-
+	
+	
 func _physics_process(delta: float) -> void:
-	pass
+	position = position.move_toward(get_parent().get_parent().get_node("Player").position,SPEED)
+	print(position[0] - get_parent().get_parent().get_node("Player").position[0])
+	print(position)
+	
+	
+	
+	
