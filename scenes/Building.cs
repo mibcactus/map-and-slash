@@ -11,7 +11,7 @@ func updateCollision(points: PackedVector2Array) -> void:
 	collision.polygon = points
 
  */
-public partial class Building : StaticBody2D {
+public partial class Building : Area2D {
 
 	private void OnBodyEntered() {
 		GD.Print("OnBodyEntered");

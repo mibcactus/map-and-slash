@@ -8,13 +8,9 @@
 radius = 22.0227
 
 [node name="Player" type="CharacterBody2D"]
-collision_mask = 12
-motion_mode = 1
+collision_layer = 9
 slide_on_ceiling = false
 floor_stop_on_slope = false
-floor_constant_speed = true
-platform_floor_layers = 4294901760
-platform_wall_layers = 8
 script = ExtResource("2_jjmjv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
