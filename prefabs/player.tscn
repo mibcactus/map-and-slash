@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://devy2uqv0riik"]
 
-[ext_resource type="Texture2D" uid="uid://6nu2fc1xjlgi" path="res://graphics/Sprites/Slime_big.png" id="2_gvmye"]
+[ext_resource type="Texture2D" uid="uid://6nu2fc1xjlgi" path="res://graphics/sprites/Slime_big.png" id="2_gvmye"]
 [ext_resource type="Script" path="res://scripts/Player.cs" id="2_jjmjv"]
 [ext_resource type="AudioStream" uid="uid://cxbwcdirjyiwy" path="res://audio/sfx/slime_noise_1.mp3" id="3_x43pc"]
 
@@ -8,9 +8,13 @@
 radius = 22.0227
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 9
+collision_mask = 12
+motion_mode = 1
 slide_on_ceiling = false
 floor_stop_on_slope = false
+floor_constant_speed = true
+platform_floor_layers = 4294901760
+platform_wall_layers = 8
 script = ExtResource("2_jjmjv")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

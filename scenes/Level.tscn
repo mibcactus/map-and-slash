@@ -1,10 +1,13 @@
-[gd_scene load_steps=6 format=3 uid="uid://dcllbebd6dsff"]
+[gd_scene load_steps=7 format=3 uid="uid://dcllbebd6dsff"]
 
 [ext_resource type="PackedScene" uid="uid://f13llsufxudj" path="res://prefabs/change_scene_button.tscn" id="1_0fmsk"]
 [ext_resource type="PackedScene" uid="uid://bxehupkonstj7" path="res://scenes/Map.tscn" id="1_7x1dv"]
 [ext_resource type="PackedScene" uid="uid://devy2uqv0riik" path="res://prefabs/player.tscn" id="1_q6l55"]
 [ext_resource type="Script" path="res://scripts/Inventory.cs" id="3_agmdq"]
 [ext_resource type="PackedScene" uid="uid://bon0st5nhxnrg" path="res://prefabs/item.tscn" id="4_0e1n5"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5niig"]
+size = Vector2(197, 89)
 
 [node name="Level" type="Node2D"]
 
@@ -36,3 +39,12 @@ offset_right = 1125.0
 offset_bottom = 622.0
 text = "finish game"
 ScenePath = "res://scenes/End.tscn"
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+visible = false
+position = Vector2(808, 271)
+shape = SubResource("RectangleShape2D_5niig")

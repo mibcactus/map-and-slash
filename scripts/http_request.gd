@@ -37,7 +37,9 @@ func _on_request_completed(_result, _response_code, _headers, body):
 	var json = JSON.parse_string(body.get_string_from_utf8())
 	var _buildings: Array = []
 	
-	var buildingsNode = find_child("Building")
+	var buildingsNode = find_child("Building") as StaticBody2D
+	buildingsNode.set_collision_layer_value(4, true)
+
 	
 	for element in json["elements"]:
 		if element.has("tags"):
@@ -53,13 +55,13 @@ func _on_request_completed(_result, _response_code, _headers, body):
 				
 				var building = Polygon2D.new()
 				building.polygon = polygon
+				
 				building.texture = texture
 				building.texture_repeat = CanvasItem.TEXTURE_REPEAT_ENABLED
 				
-				building.add_child(buildingCollision)
+				buildingsNode.add_child(buildingCollision)
 				buildingsNode.add_child(building)
-				
-				
+	print(buildingsNode.get_children())
 
 func _ready() -> void:
 	var headers = ["Content-Type: application/json"]
