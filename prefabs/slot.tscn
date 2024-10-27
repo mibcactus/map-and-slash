@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://d2ac2vmqqesga"]
+
+[ext_resource type="Script" path="res://scripts/Slot.cs" id="1_x2t6k"]
+
+[node name="Slot" type="TextureRect"]
+script = ExtResource("1_x2t6k")
