@@ -1,5 +1,4 @@
 using Godot;
-using System;
 
 /*
  * class_name Building extends Area2D
@@ -11,9 +10,11 @@ func updateCollision(points: PackedVector2Array) -> void:
 	collision.polygon = points
 
  */
+namespace hacknotts.scenes;
+
 public partial class Building : Area2D {
 
-	private void OnBodyEntered() {
+	public void _on_body_entered() {
 		GD.Print("OnBodyEntered");
 	}
 	

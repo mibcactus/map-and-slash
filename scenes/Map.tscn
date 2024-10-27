@@ -14,6 +14,7 @@ texture_filepath = "res://graphics/textures/concete.png"
 
 [node name="Building" type="Area2D" parent="HTTPRequest"]
 collision_layer = 8
+collision_mask = 9
 script = ExtResource("2_4yxss")
 
 [node name="Path" type="Path2D" parent="HTTPRequest"]
